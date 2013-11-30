@@ -5,6 +5,9 @@
   user: fabio
   sudo: true
 
+  vars:
+    user: fabio
+
   roles:
     - system
     - applications

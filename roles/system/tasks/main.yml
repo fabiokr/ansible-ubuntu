@@ -33,3 +33,13 @@
     - ruby-dev
     # ruby package manager
     - rubygems
+
+- name: zsh facts
+  shell: 'echo $SHELL'
+  register: default_shell
+  changed_when: False
+  sudo: no
+
+- name: make zsh default
+  shell:  chsh -s /bin/zsh {{ user }}
+  when: default_shell.stdout.find('/bin/zsh') == -1
