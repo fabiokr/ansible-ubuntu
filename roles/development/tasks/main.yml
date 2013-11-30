@@ -1,5 +1,11 @@
 ---
 
+- name: ppas
+  apt_repository: repo={{ item }}
+  with_items:
+    # jdk
+    - "ppa:webupd8team/java"
+
 - name: install
   apt: pkg={{ item }}
   with_items:
@@ -29,14 +35,23 @@
 
     # python package manager
     - python-pip
+    # python qt4 required by electrum
+    - python-qt4
+
     # ruby
     - ruby
     # ruby dev headers
     - ruby-dev
     # ruby package manager
     - rubygems
+
     # node javascript runtime
     - nodejs
+
+    # jdk
+    - oracle-java8-installer
+    # java web plugin
+    - icedtea-plugin
 
     # git source control
     - git

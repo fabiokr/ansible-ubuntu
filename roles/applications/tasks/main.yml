@@ -1,8 +1,16 @@
 ---
 
+- name: ppas
+  apt_repository: repo={{ item }}
+  with_items:
+    # sublime text editor
+    - "ppa:webupd8team/sublime-text-3"
+
 - name: install
   apt: pkg={{ item }}
   with_items:
+    # sublime text editor
+    - sublime-text-installer
     # commonly used applications with restricted copyright
     - ubuntu-restricted-extras
     # flash player
@@ -19,3 +27,25 @@
     - gimp
     # desktop recording
     - gtk-recordmydesktop
+
+- name: debs
+  get_url: url={{ item }} dest=/tmp
+  with_items:
+    - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - http://download.opensuse.org/repositories/home:/olav-st/xUbuntu_12.04/amd64/screencloud_1.1.2_amd64.deb
+
+- name: install debs
+  command: dpkg --skip-same-version -i /tmp/{{ item }}
+  register: dpkg_result
+  changed_when: "dpkg_result.stdout.startswith('Selecting')"
+  with_items:
+    # Google Chrome browser
+    - google-chrome-stable_current_amd64.deb
+    # Screencloud screenshot tool
+    - screencloud_1.1.2_amd64.deb
+
+- name: pip
+  pip: name={{ item }}
+  with_items:
+    # electrum bitcoin wallet
+    - http://download.electrum.org/Electrum-1.9.5.tar.gz#md5=e8d66b08f7d1d745e1de04a090d199c2
