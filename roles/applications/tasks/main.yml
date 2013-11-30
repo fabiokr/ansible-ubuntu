@@ -27,12 +27,17 @@
     - gimp
     # desktop recording
     - gtk-recordmydesktop
+    # system monitor
+    - gnome-system-monitor
+    # backups
+    - deja-dup
 
 - name: debs
   get_url: url={{ item }} dest=/tmp
   with_items:
     - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - http://download.opensuse.org/repositories/home:/olav-st/xUbuntu_12.04/amd64/screencloud_1.1.2_amd64.deb
+    - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_1.6.0_amd64.deb
 
 - name: install debs
   command: dpkg --skip-same-version -i /tmp/{{ item }}
@@ -43,6 +48,8 @@
     - google-chrome-stable_current_amd64.deb
     # Screencloud screenshot tool
     - screencloud_1.1.2_amd64.deb
+    # Dropbox
+    - dropbox_1.6.0_amd64.deb
 
 - name: pip
   pip: name={{ item }}
