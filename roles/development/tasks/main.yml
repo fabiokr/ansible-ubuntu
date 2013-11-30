@@ -1,0 +1,73 @@
+---
+
+- name: install
+  apt: pkg={{ item }}
+  with_items:
+    # build essential
+    - build-essential
+    # automatic configure script builder
+    - autoconf
+    # compilation
+    - make
+    # makefiles
+    - automake
+
+    # ssl headers - required for ruby-build
+    - libssl-dev
+    # yaml headers - required for ruby-build
+    - libyaml-dev
+    # readline - required for ruby-build
+    - libreadline6
+    # readline dev - required for ruby-build
+    - libreadline6-dev
+    # compression lib - required for ruby-build
+    - zlib1g
+    # compression lib headers - required for ruby-build
+    - zlib1g-dev
+    # image processing
+    - imagemagick
+
+    # python package manager
+    - python-pip
+    # ruby
+    - ruby
+    # ruby dev headers
+    - ruby-dev
+    # ruby package manager
+    - rubygems
+    # node javascript runtime
+    - nodejs
+
+    # git source control
+    - git
+    # git graphical interface
+    - gitg
+    # subversion source control
+    - subversion
+    # bazaar source control
+    - bzr
+
+    # sqlite database
+    - sqlite3
+    # slite lib
+    - libsqlite3-0
+    # sqlite driver header
+    - libsqlite3-dev
+    # mysql database
+    - mysql-server
+    # mysql gui
+    - mysql-workbench
+    # mysql driver lib
+    - libmysqlclient-dev
+    # mysql ruby driver lib
+    - libmysql-ruby
+    # postgres database
+    - postgresql
+    # postgres extensions
+    - postgresql-contrib
+    # postgres driver lib
+    - libpq-dev
+    # postgres gui
+    - pgadmin3
+    # redis key-value database
+    - redis-server

@@ -1,0 +1,21 @@
+---
+
+- name: install
+  apt: pkg={{ item }}
+  with_items:
+    # commonly used applications with restricted copyright
+    - ubuntu-restricted-extras
+    # flash player
+    - flashplugin-installer
+    # media player
+    - vlc
+    # chat client
+    - pidgin
+    # finance manager
+    - gnucash
+    # password manager
+    - keepassx
+    # image editor
+    - gimp
+    # desktop recording
+    - gtk-recordmydesktop

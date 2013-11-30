@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+
+  user: fabio
+  sudo: true
+
+  roles:
+    - system
+    - applications
+    - development

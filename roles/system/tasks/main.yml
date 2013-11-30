@@ -1,0 +1,23 @@
+---
+
+- name: install
+  apt: pkg={{ item }}
+  with_items:
+    # package manager
+    - synaptic
+    # top-down terminal
+    - guake
+    # better shell
+    - zsh
+    # terminal multiplexer
+    - tmux
+    # terminal editor
+    - vim-gtk
+    # shh
+    - ssh
+    # openssl toolkit
+    - openssl
+    # command line url transfers
+    - curl
+    # desktop notification library
+    - libnotify-bin
