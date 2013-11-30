@@ -21,3 +21,15 @@
     - curl
     # desktop notification library
     - libnotify-bin
+
+    # python package manager
+    - python-pip
+    # python qt4 required by electrum
+    - python-qt4
+
+    # ruby
+    - ruby
+    # ruby dev headers
+    - ruby-dev
+    # ruby package manager
+    - rubygems
