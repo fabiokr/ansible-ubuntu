@@ -39,6 +39,8 @@
     - radiotray
     # screenshot tool
     - shutter
+    # subtitles download
+    - subdownloader
 
 - name: debs
   get_url: url={{ item }} dest=/tmp

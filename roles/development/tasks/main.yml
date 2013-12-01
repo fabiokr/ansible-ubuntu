@@ -1,5 +1,10 @@
 ---
 
+- name: ubuntu distribution
+  shell: "grep '^deb ' /etc/apt/sources.list | head -n1 | awk '{ print $3 }'"
+  register: codename
+  changed_when: False
+
 - name: ppas
   apt_repository: repo={{ item }}
   with_items:
@@ -7,6 +12,12 @@
     -  "ppa:webupd8team/java"
     # git
     -  "ppa:git-core/ppa"
+
+- name: postgres ppa key
+  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
+- name: postgres ppa
+  apt_repository: "repo='deb http://apt.postgresql.org/pub/repos/apt/ {{ codename.stdout }}-pgdg main'"
 
 - name: oracle auto accept select
   shell: "echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections"
@@ -60,12 +71,16 @@
     # bazaar source control
     - bzr
 
+    # english dict lib
+    - wamerican
+
     # sqlite database
     - sqlite3
     # slite lib
     - libsqlite3-0
     # sqlite driver header
     - libsqlite3-dev
+
     # mysql database
     - mysql-server
     # mysql gui
@@ -74,16 +89,32 @@
     - libmysqlclient-dev
     # mysql ruby driver lib
     - libmysql-ruby
+
     # postgres database
-    - postgresql
+    - postgresql-9.1
     # postgres extensions
-    - postgresql-contrib
+    - postgresql-contrib-9.1
     # postgres driver lib
     - libpq-dev
     # postgres gui
     - pgadmin3
+    # ansible postgres integration
+    - python-psycopg2
+
     # redis key-value database
     - redis-server
 
 - name: postgres user
   postgresql_user: name={{ user }} password={{ user }} role_attr_flags=SUPERUSER
+  sudo_user: postgres
+
+- name: postgres encoding facts
+  shell: "psql -c \"SELECT datname FROM pg_database WHERE encoding = pg_char_to_encoding('UTF8') AND datcollate = 'en_US.utf8' AND datctype = 'en_US.utf8'\""
+  sudo_user: postgres
+  register: postgres_encoding
+  changed_when: False
+
+- name: postgres encoding
+  when: "postgres_encoding.stdout.find('template1') == -1"
+  shell: "psql -c \"UPDATE pg_database SET encoding = pg_char_to_encoding('UTF8'), datcollate = 'en_US.utf8', datctype = 'en_US.utf8' WHERE datname = 'template1';\""
+  sudo_user: postgres
