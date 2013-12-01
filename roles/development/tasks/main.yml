@@ -16,8 +16,14 @@
 - name: postgres ppa key
   apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
 
+- name: passenger ppa key
+  apt_key: id=AC40B2F7 state=present url="http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x561F9B9CAC40B2F7"
+
 - name: postgres ppa
   apt_repository: "repo='deb http://apt.postgresql.org/pub/repos/apt/ {{ codename.stdout }}-pgdg main'"
+
+- name: passenger ppa
+  apt_repository: "repo='deb https://oss-binaries.phusionpassenger.com/apt/passenger {{ codename.stdout }} main'"
 
 - name: oracle auto accept select
   shell: "echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections"
@@ -91,9 +97,9 @@
     - libmysql-ruby
 
     # postgres database
-    - postgresql-9.1
+    - postgresql-9.3
     # postgres extensions
-    - postgresql-contrib-9.1
+    - postgresql-contrib-9.3
     # postgres driver lib
     - libpq-dev
     # postgres gui
@@ -103,6 +109,12 @@
 
     # redis key-value database
     - redis-server
+
+    # nginx web server
+    - nginx-extras
+
+    # nginx passenger ruby module
+    - passenger
 
 - name: postgres user
   postgresql_user: name={{ user }} password={{ user }} role_attr_flags=SUPERUSER
@@ -118,3 +130,6 @@
   when: "postgres_encoding.stdout.find('template1') == -1"
   shell: "psql -c \"UPDATE pg_database SET encoding = pg_char_to_encoding('UTF8'), datcollate = 'en_US.utf8', datctype = 'en_US.utf8' WHERE datname = 'template1';\""
   sudo_user: postgres
+
+- name: passenger nginx config
+  template: src=nginx.j2 dest=/etc/nginx/nginx.conf
