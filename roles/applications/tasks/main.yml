@@ -41,6 +41,10 @@
     - shutter
     # subtitles download
     - subdownloader
+    # diff viewer
+    - meld
+    # download manager
+    - steadyflow
 
 - name: debs
   get_url: url={{ item }} dest=/tmp
