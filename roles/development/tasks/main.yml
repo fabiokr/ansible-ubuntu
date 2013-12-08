@@ -26,11 +26,7 @@
   apt_repository: "repo='deb https://oss-binaries.phusionpassenger.com/apt/passenger {{ codename.stdout }} main'"
 
 - name: oracle auto accept select
-  shell: "echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections"
-  changed_when: False
-
-- name: oracle auto accept seen
-  shell: "echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections"
+  shell: "echo -e oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections"
   changed_when: False
 
 - name: install
@@ -59,6 +55,11 @@
     - zlib1g-dev
     # image processing
     - imagemagick
+    # required by nokogiri rubygem
+    - libxml2-dev
+    - libxslt1-dev
+    # local dns
+    - dnsmasq
 
     # node javascript runtime
     - nodejs

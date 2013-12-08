@@ -3,16 +3,12 @@
 - name: ppas
   apt_repository: repo={{ item }}
   with_items:
-    # sublime text editor
-    - "ppa:webupd8team/sublime-text-3"
     # screenshots
     - "ppa:shutter/ppa"
 
 - name: install
   apt: pkg={{ item }}
   with_items:
-    # sublime text editor
-    - sublime-text-installer
     # commonly used applications with restricted copyright
     - ubuntu-restricted-extras
     # flash player
@@ -45,12 +41,15 @@
     - meld
     # download manager
     - steadyflow
+    # required by electrum
+    - python-slowaes
 
 - name: debs
   get_url: url={{ item }} dest=/tmp
   with_items:
     - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_1.6.0_amd64.deb
+    - http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3047_amd64.deb
 
 - name: install debs
   command: dpkg --skip-same-version -i /tmp/{{ item }}
@@ -61,6 +60,8 @@
     - google-chrome-stable_current_amd64.deb
     # Dropbox
     - dropbox_1.6.0_amd64.deb
+    # sublime text
+    - sublime-text_build-3047_amd64.deb
 
 - name: pip
   pip: name={{ item }}
