@@ -13,3 +13,5 @@
     - dkms
     # virtualbox
     - virtualbox-4.3
+    # SSH File system
+    - sshfs
