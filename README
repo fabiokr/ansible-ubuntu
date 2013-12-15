@@ -1,2 +1,0 @@
-- Install ansible
-- ansible-playbook -K -i inventory setup.yml

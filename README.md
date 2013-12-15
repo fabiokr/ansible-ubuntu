@@ -1,4 +1,2 @@
-ansible-ubuntu
-==============
-
-An Ansible playbook to setup my Ubuntu system
+- Install ansible
+- ansible-playbook -K -i inventory setup.yml
