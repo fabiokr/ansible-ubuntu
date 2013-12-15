@@ -1,0 +1,15 @@
+---
+
+- name: virtualbox ppa key
+  apt_key: url="http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc"
+
+- name: virtualbox ppa
+  apt_repository: "repo='deb http://download.virtualbox.org/virtualbox/debian {{ codename.stdout }} contrib'"
+
+- name: virtualbox install
+  apt: pkg={{ item }}
+  with_items:
+    # keeps virtualbox up to date on kernel upgrades
+    - dkms
+    # virtualbox
+    - virtualbox-4.3

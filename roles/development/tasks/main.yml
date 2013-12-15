@@ -90,4 +90,5 @@
 
 - include: postgres.yml
 - include: passenger.yml
+- include: virtualbox.yml
 - include: dnsmasq.yml
