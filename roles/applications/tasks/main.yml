@@ -15,6 +15,8 @@
     - flashplugin-installer
     # media player
     - vlc
+    # required to convert ovgs into a gif
+    - mplayer
     # chat client
     - pidgin
     # finance manager
