@@ -19,6 +19,8 @@
     - mplayer
     # chat client
     - pidgin
+    # chat client plugins
+    - pidgin-plugin-pack
     # finance manager
     - gnucash
     # password manager
