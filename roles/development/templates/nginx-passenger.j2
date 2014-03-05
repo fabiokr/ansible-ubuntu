@@ -1,0 +1,10 @@
+server {
+  listen 80;
+  server_name project.dev *.project.dev;
+  root /home/fabio/dev/project/public;
+  passenger_enabled on;
+  passenger_ruby /home/fabio/.rbenv/shims/ruby;
+  rails_env development;
+  access_log /home/fabio/dev/project/log/nginx_access.log;
+  error_log /home/fabio/dev/project/log/nginx_error.log;
+}
