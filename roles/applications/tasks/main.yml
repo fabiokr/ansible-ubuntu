@@ -47,6 +47,8 @@
     - steadyflow
     # required by electrum
     - python-slowaes
+    # partition management
+    - gparted
 
 - name: debs
   get_url: url={{ item }} dest=/tmp
