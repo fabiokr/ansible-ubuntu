@@ -49,6 +49,8 @@
     - python-slowaes
     # partition management
     - gparted
+    # pdf anotations
+    - xournal
 
 - name: debs
   get_url: url={{ item }} dest=/tmp
