@@ -51,6 +51,8 @@
     - gparted
     # pdf anotations
     - xournal
+    # ebook manager
+    - calibre
 
 - name: debs
   get_url: url={{ item }} dest=/tmp
