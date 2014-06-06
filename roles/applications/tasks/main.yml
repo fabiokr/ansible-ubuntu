@@ -77,4 +77,4 @@
   pip: name={{ item }}
   with_items:
     # electrum bitcoin wallet
-    - http://download.electrum.org/Electrum-1.9.5.tar.gz#md5=e8d66b08f7d1d745e1de04a090d199c2
+    - https://download.electrum.org/Electrum-1.9.8.tar.gz#md5=e3918fec0254267f08e41a1fb8691382
