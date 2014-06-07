@@ -84,7 +84,7 @@
     # mysql driver lib
     - libmysqlclient-dev
     # mysql ruby driver lib
-    - libmysql-ruby
+    - ruby-mysql2
 
     # redis key-value database
     - redis-server
