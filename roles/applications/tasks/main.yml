@@ -55,7 +55,7 @@
     - calibre
 
 - name: debs
-  get_url: url={{ item }} dest=/tmp
+  get_url: url={{ item }} dest=/tmp force=no
   with_items:
     - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_1.6.0_amd64.deb
