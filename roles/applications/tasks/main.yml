@@ -5,6 +5,7 @@
   with_items:
     # screenshots
     - "ppa:shutter/ppa"
+    - "ppa:mumble/release"
 
 - name: install
   apt: pkg={{ item }}
@@ -53,6 +54,8 @@
     - xournal
     # ebook manager
     - calibre
+    # voip app
+    - mumble
 
 - name: debs
   get_url: url={{ item }} dest=/tmp force=no
