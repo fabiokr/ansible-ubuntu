@@ -71,7 +71,7 @@
     # Dropbox
     - dropbox_1.6.0_amd64.deb
     # sublime text
-    - sublime-text_build-3047_amd64.deb
+    - sublime-text_build-3059_amd64.deb
 
 - name: pip
   pip: name={{ item }}
