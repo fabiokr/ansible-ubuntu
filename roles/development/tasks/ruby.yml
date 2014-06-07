@@ -1,0 +1,18 @@
+---
+- name: chruby download
+  get_url: url=https://github.com/postmodern/chruby/archive/v0.3.8.tar.gz dest=/tmp/chruby.tar.gz force=no
+
+- name: chruby unarchive
+  unarchive: src=/tmp/chruby.tar.gz dest=/tmp
+
+- name: chruby install
+  command: make install chdir=/tmp/chruby-0.3.8 creates=/usr/local/share/chruby/chruby.sh
+
+- name: ruby-install download
+  get_url: url=https://github.com/postmodern/ruby-install/archive/v0.4.3.tar.gz dest=/tmp/ruby-install.tar.gz force=no
+
+- name: ruby-install unarchive
+  unarchive: src=/tmp/ruby-install.tar.gz dest=/tmp
+
+- name: ruby-install install
+  command: make install chdir=/tmp/ruby-install-0.4.3 creates=/usr/local/bin/ruby-install

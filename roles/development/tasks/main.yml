@@ -50,6 +50,8 @@
     # required by nokogiri rubygem
     - libxml2-dev
     - libxslt1-dev
+    # word diff lib
+    - dwdiff
     # local dns
     - dnsmasq
 
@@ -97,3 +99,4 @@
 - include: passenger.yml
 - include: virtualbox.yml
 - include: dnsmasq.yml
+- include: ruby.yml
