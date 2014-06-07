@@ -31,8 +31,6 @@
     - ruby
     # ruby dev headers
     - ruby-dev
-    # ruby package manager
-    - rubygems
 
 - name: zsh facts
   shell: 'echo $SHELL'
