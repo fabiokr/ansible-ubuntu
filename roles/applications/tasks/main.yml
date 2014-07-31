@@ -5,7 +5,10 @@
   with_items:
     # screenshots
     - "ppa:shutter/ppa"
+    # voice chat
     - "ppa:mumble/release"
+    # video to gif
+    - "ppa:samrog131/ppa"
 
 - name: install
   apt: pkg={{ item }}
@@ -56,6 +59,10 @@
     - calibre
     # voip app
     - mumble
+    # ftp
+    - filezilla
+    # video to gif
+    - qgifer
 
 - name: debs
   get_url: url={{ item }} dest=/tmp force=no
