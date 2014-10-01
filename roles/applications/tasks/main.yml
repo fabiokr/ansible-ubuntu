@@ -63,6 +63,8 @@
     - filezilla
     # video to gif
     - qgifer
+    # Reload display configurations
+    - disper
 
 - name: debs
   get_url: url={{ item }} dest=/tmp force=no
