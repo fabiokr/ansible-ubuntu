@@ -5,8 +5,6 @@
   with_items:
     # screenshots
     - "ppa:shutter/ppa"
-    # voice chat
-    - "ppa:mumble/release"
     # video to gif
     - "ppa:samrog131/ppa"
 
