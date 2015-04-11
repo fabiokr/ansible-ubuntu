@@ -51,8 +51,6 @@
     - xournal
     # ebook manager
     - calibre
-    # voip app
-    - mumble
     # ftp
     - filezilla
     # video to gif
