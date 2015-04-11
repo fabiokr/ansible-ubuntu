@@ -19,10 +19,6 @@
     - vlc
     # required to convert ovgs into a gif
     - mplayer
-    # chat client
-    - pidgin
-    # chat client plugins
-    - pidgin-plugin-pack
     # finance manager
     - gnucash
     # password manager
