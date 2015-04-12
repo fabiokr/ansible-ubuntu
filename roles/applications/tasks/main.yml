@@ -1,12 +1,20 @@
 ---
 
+- name: hipchat ppa key
+  apt_key: url=https://www.hipchat.com/keys/hipchat-linux.key
+
 - name: ppas
-  apt_repository: repo={{ item }}
+  apt_repository: "repo='{{ item }}'"
   with_items:
     # screenshots
     - "ppa:shutter/ppa"
     # video to gif
     - "ppa:samrog131/ppa"
+    # hipchat
+    - "deb http://downloads.hipchat.com/linux/apt stable main"
+
+- name: update-cache
+  apt: update_cache=yes
 
 - name: install
   apt: pkg={{ item }}
@@ -55,8 +63,10 @@
     - filezilla
     # video to gif
     - qgifer
-    # Reload display configurations
+    # reload display configurations
     - disper
+    # work communication
+    - hipchat
 
 - name: debs
   get_url: url={{ item }} dest=/tmp force=no
