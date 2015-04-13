@@ -76,6 +76,7 @@
   get_url: url={{ item }} dest=/tmp force=no
   with_items:
     - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb
     - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
 
 - name: install debs
@@ -85,6 +86,8 @@
   with_items:
     # Google Chrome browser
     - google-chrome-stable_current_amd64.deb
+    # Google Talk
+    - google-talkplugin_current_amd64.deb
     # Dropbox
     - dropbox_2015.02.12_amd64.deb
 
