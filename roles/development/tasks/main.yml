@@ -9,9 +9,9 @@
   apt_repository: repo={{ item }}
   with_items:
     # jdk
-    -  "ppa:webupd8team/java"
+    - "ppa:webupd8team/java"
     # git
-    -  "ppa:git-core/ppa"
+    - "ppa:git-core/ppa"
 
 - name: oracle auto accept select
   shell: "echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections"

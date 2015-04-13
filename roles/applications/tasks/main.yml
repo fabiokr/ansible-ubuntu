@@ -12,6 +12,8 @@
     - "ppa:samrog131/ppa"
     # hipchat
     - "deb http://downloads.hipchat.com/linux/apt stable main"
+    # text editor
+    - "ppa:webupd8team/sublime-text-3"
 
 - name: update-cache
   apt: update_cache=yes
@@ -67,13 +69,14 @@
     - disper
     # work communication
     - hipchat
+    # text editor
+    - sublime-text-installer
 
 - name: debs
   get_url: url={{ item }} dest=/tmp force=no
   with_items:
     - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
-    - http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb
 
 - name: install debs
   command: dpkg --skip-same-version -i /tmp/{{ item }}
@@ -84,8 +87,6 @@
     - google-chrome-stable_current_amd64.deb
     # Dropbox
     - dropbox_2015.02.12_amd64.deb
-    # sublime text
-    - sublime-text_build-3083_amd64.deb
 
 - name: pip
   pip: name={{ item }}
