@@ -1,0 +1,13 @@
+---
+
+- name: vagrant deb
+  get_url: url={{ item }} dest=/tmp force=no
+  with_items:
+    - https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
+
+- name: vagrant install
+  command: dpkg --skip-same-version -i /tmp/{{ item }}
+  register: dpkg_result
+  changed_when: "dpkg_result.stdout.startswith('Selecting')"
+  with_items:
+    - vagrant_1.7.2_x86_64.deb
