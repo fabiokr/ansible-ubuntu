@@ -92,13 +92,11 @@
     # mysql ruby driver lib
     - ruby-mysql2
 
-    # redis key-value database
-    - redis-server
-
     # command line clipboard utility
     - xclip
 
 - include: postgres.yml
+- include: redis.yml
 - include: passenger.yml
 - include: virtualbox.yml
 - include: vagrant.yml

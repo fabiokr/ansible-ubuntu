@@ -9,6 +9,6 @@
     user: fabio
 
   roles:
-    - system
-    - applications
+    #- system
+    #- applications
     - development
