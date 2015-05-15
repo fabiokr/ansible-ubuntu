@@ -71,6 +71,8 @@
     - hipchat
     # text editor
     - sublime-text-installer
+    # VPN
+    - openvpn
 
 - name: debs
   get_url: url={{ item }} dest=/tmp force=no
