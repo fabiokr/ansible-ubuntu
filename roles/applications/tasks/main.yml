@@ -101,4 +101,4 @@
   pip: name={{ item }}
   with_items:
     # electrum bitcoin wallet
-    - https://download.electrum.org/Electrum-2.0.4.tar.gz
+    - https://download.electrum.org/Electrum-2.2.tar.gz
