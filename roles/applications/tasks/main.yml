@@ -14,6 +14,8 @@
     - "deb http://downloads.hipchat.com/linux/apt stable main"
     # text editor
     - "ppa:webupd8team/sublime-text-3"
+    # atom text editor
+    - "ppa:webupd8team/atom"
 
 - name: update-cache
   apt: update_cache=yes
@@ -71,6 +73,8 @@
     - hipchat
     # text editor
     - sublime-text-installer
+    # atom text editor
+    - atom
     # VPN
     - openvpn
 
@@ -80,8 +84,6 @@
     - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb
     - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
-    # Atom
-    - https://s3.amazonaws.com/github-cloud/releases/3228505/c5c85f6a-fa35-11e4-9940-d263d952eb31.deb
 
 - name: install debs
   command: dpkg --skip-same-version -i /tmp/{{ item }}
@@ -94,8 +96,6 @@
     - google-talkplugin_current_amd64.deb
     # Dropbox
     - dropbox_2015.02.12_amd64.deb
-    # Atom
-    - c5c85f6a-fa35-11e4-9940-d263d952eb31.deb
 
 - name: pip
   pip: name={{ item }}
