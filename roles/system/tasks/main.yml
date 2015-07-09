@@ -50,3 +50,6 @@
 # make sure home folder has executable permission so that nginx can run stuff from it
 - name: home folder permission
   file: path=/home/{{ user }} mode="701"
+
+- name: setup swappiness
+  template: src=swappiness.conf.j2 dest=/etc/sysctl.d/20-swappiness.conf
