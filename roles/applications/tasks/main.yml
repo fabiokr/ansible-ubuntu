@@ -73,6 +73,8 @@
     - atom
     # VPN
     - openvpn
+    # Skype System Indicator
+    - sni-qt:i386
 
 - name: debs
   get_url: url={{ item }} dest=/tmp force=no
@@ -80,6 +82,7 @@
     - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb
     - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
+    - http://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
 
 - name: install debs
   command: dpkg --skip-same-version -i /tmp/{{ item }}
@@ -92,6 +95,8 @@
     - google-talkplugin_current_amd64.deb
     # Dropbox
     - dropbox_2015.02.12_amd64.deb
+    # Skype
+    - skype-ubuntu-precise_4.3.0.37-1_i386.deb
 
 - name: pip
   pip: name={{ item }}
