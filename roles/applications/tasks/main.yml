@@ -63,8 +63,6 @@
     - calibre
     # ftp
     - filezilla
-    # video to gif
-    - qgifer
     # reload display configurations
     - disper
     # work communication
@@ -79,6 +77,7 @@
 - name: debs
   get_url: url={{ item }} dest=/tmp force=no
   with_items:
+    - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb
     - https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.02.12_amd64.deb
 
@@ -87,6 +86,8 @@
   register: dpkg_result
   changed_when: "dpkg_result.stdout.startswith('Selecting')"
   with_items:
+    # Google Chrome browser
+    - google-chrome-stable_current_amd64.deb
     # Google Talk
     - google-talkplugin_current_amd64.deb
     # Dropbox
