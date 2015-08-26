@@ -102,3 +102,4 @@
 - include: vagrant.yml
 - include: dnsmasq.yml
 - include: ruby.yml
+- include: docker.yml

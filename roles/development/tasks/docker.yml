@@ -1,0 +1,27 @@
+---
+
+- name: docker repository key
+  apt_key:
+    id: "2C52609D"
+    url: "https://apt.dockerproject.org/gpg"
+    state: present
+
+- name: docker repository
+  apt_repository:
+    repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main"
+    update_cache: yes
+    state: present
+
+- name: docker package
+  apt: pkg=docker-engine
+
+- name: docker start
+  service:
+    name: docker
+    state: started
+
+- name: docker group
+  user:
+    name: fabio
+    groups: docker
+    append: yes
