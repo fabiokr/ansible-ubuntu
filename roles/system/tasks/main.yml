@@ -32,11 +32,6 @@
     # ruby dev headers
     - ruby-dev
 
-    # nodejs
-    - nodejs-legacy
-    # node package manager
-    - npm
-
 - name: zsh facts
   shell: 'echo $SHELL'
   register: default_shell

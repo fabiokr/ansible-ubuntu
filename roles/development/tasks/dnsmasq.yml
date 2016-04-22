@@ -1,3 +1,6 @@
+- name: install
+  apt: pkg=dnsmasq
+
 - name: dnsmasq dev config
   lineinfile: dest=/etc/dnsmasq.conf line='address=/dev/127.0.0.1'
 

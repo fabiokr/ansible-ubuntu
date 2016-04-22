@@ -7,6 +7,9 @@
 
 - name: node repository
   apt_repository:
-    repo: "deb https://deb.nodesource.com/5.X ubuntu-{{ ansible_distribution_release }} main"
+    repo: "deb https://deb.nodesource.com/node_5.x ubuntu-{{ ansible_distribution_release }} main"
     update_cache: yes
     state: present
+
+- name: nodejs package
+  apt: pkg=nodejs

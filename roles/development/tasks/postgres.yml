@@ -2,15 +2,15 @@
   apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
 
 - name: postgres ppa
-  apt_repository: "repo='deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main'"
+  apt_repository: "repo='deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main'"
 
 - name: postgres install
   apt: pkg={{ item }}
   with_items:
     # postgres database
-    - postgresql-9.3
+    - postgresql-9.5
     # postgres extensions
-    - postgresql-contrib-9.3
+    - postgresql-contrib-9.5
     # postgres driver lib
     - libpq-dev
     # postgres gui

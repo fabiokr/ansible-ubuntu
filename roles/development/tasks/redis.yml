@@ -3,14 +3,14 @@
 - name: redis install
   apt: pkg=redis-server
 
-- name: redis deb
+- name: redis desktop manager deb
   get_url: url={{ item }} dest=/tmp force=no
   with_items:
-    - https://github.com/uglide/RedisDesktopManager/releases/download/0.7.6/redis-desktop-manager_0.7.6.8_amd64_ubuntu.deb
+    - https://github.com/uglide/RedisDesktopManager/releases/download/0.8.3/redis-desktop-manager_0.8.3-120_amd64.deb
 
 - name: redis install
   command: dpkg --skip-same-version -i /tmp/{{ item }}
   register: dpkg_result
   changed_when: "dpkg_result.stdout.startswith('Selecting')"
   with_items:
-    - redis-desktop-manager_0.7.6.8_amd64_ubuntu.deb
+    - redis-desktop-manager_0.8.3-120_amd64.deb

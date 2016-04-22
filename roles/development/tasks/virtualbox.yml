@@ -12,6 +12,6 @@
     # keeps virtualbox up to date on kernel upgrades
     - dkms
     # virtualbox
-    - virtualbox-4.3
+    - virtualbox-5.0
     # SSH File system
     - sshfs

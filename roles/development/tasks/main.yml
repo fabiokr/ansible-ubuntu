@@ -52,11 +52,6 @@
     - libxslt1-dev
     # word diff lib
     - dwdiff
-    # local dns
-    - dnsmasq
-
-    # node javascript runtime
-    - nodejs
 
     # jdk
     - oracle-java8-installer
